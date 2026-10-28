@@ -50,3 +50,7 @@ Details: [docs/assignment-notes.md](docs/assignment-notes.md) and [docs/overview
 3. Commit small changes straight to `main` (group decision): `git pull --rebase`, edit, commit, `git pull --rebase`, push.
 4. After each session: update the task **Status** in [tasks.md](tasks.md), add a line to [progress-log.md](progress-log.md), and record any real results in [experiments.md](experiments.md).
 5. Keep datasets (`data/`, `*.cdataset`) out of git. Commit your own work to GitLab as well so individual contributions are visible.
+
+## Agents, issues and documentation
+
+This repo is managed by agents. **GitHub Issues are the ticket system** (one issue per task, plus issues for bugs, blockers and questions). Agents must document every change in [progress-log.md](progress-log.md), update task status in [tasks.md](tasks.md) and comment on the related issue. Full rules: [AGENTS.md](AGENTS.md).
