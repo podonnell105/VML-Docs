@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+.env
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Datasets and large files (do not commit; mirror code only)
+data/
+*.cdataset
+*.npy
+*.npz
+*.pkl
+*.joblib
+*.h5
+
+# Large images (final result images may be force-added deliberately)
+*.jpg
+*.jpeg
+*.png
+*.bmp
+*.tif
+*.tiff
+!docs/**/*.png
+!docs/**/*.jpg
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
