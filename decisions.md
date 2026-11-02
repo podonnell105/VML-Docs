@@ -34,3 +34,19 @@ Resolve these together at the next group meeting. Tick each item when decided an
   - Suggested start: decide only after the core classifier and detector work reliably.
   - Decision:
   - Decided by/date:
+- [ ] **9. Detection window [TO CONFIRM]:** 18×27 (W×H).
+  - Proposed from task 1.3. Not agreed.
+  - Decision:
+  - Decided by/date:
+- [ ] **10. Test set [TO CONFIRM]:** do not augment the test set.
+  - Proposed from task 1.3. Not agreed.
+  - Decision:
+  - Decided by/date:
+- [ ] **11. Class imbalance [TO CONFIRM]:** class weights for imbalance.
+  - Proposed from task 1.3. Not agreed.
+  - Decision:
+  - Decided by/date:
+- [ ] **12. Normalisation [TO CONFIRM]:** per-window normalisation.
+  - Proposed from task 1.3. Not agreed.
+  - Decision:
+  - Decided by/date:

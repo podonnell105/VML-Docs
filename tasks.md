@@ -6,18 +6,18 @@ Source of truth for task status. 55 tasks across 7 phases. Owner tags: a person'
 
 | Status | Count |
 | --- | --- |
-| To do | 55 |
+| To do | 54 |
 | In progress | 0 |
 | In review | 0 |
 | Blocked | 0 |
-| Done | 0 |
+| Done | 1 |
 | **Total** | **55** |
 
 Per phase:
 
 | Phase | Tasks | To do | In progress | In review | Blocked | Done |
 | --- | --- | --- | --- | --- | --- | --- |
-| Phase 1 - Setup & data | 6 | 6 | 0 | 0 | 0 | 0 |
+| Phase 1 - Setup & data | 6 | 5 | 0 | 0 | 0 | 1 |
 | Phase 2 - Baseline classifier | 8 | 8 | 0 | 0 | 0 | 0 |
 | Phase 3 - Compare classifiers | 8 | 8 | 0 | 0 | 0 | 0 |
 | Phase 4 - Build detector | 8 | 8 | 0 | 0 | 0 | 0 |
@@ -40,7 +40,7 @@ Per phase:
 | --- | --- | --- | --- | --- | --- | --- |
 | 1.1 | Set up the group GitLab repository and initial folder structure. | Peter | Owner task | To do | – |  |
 | 1.2 | Set up the Python environment and verify dependencies. | Daire | Owner task | To do | – |  |
-| 1.3 | Inspect the images/face and images/non-face training crops. | Patrick | Owner task | To do | – |  |
+| 1.3 | Inspect the images/face and images/non-face training crops. | Patrick | Owner task | Done | – | [training-data-analysis.html](docs/training-data-analysis.html), [dataset-summary.md](docs/dataset-summary.md) |
 | 1.4 | Inspect face_train.cdataset and face_test.cdataset and document how they are loaded. | Patrick, Daire | Owner task | To do | – |  |
 | 1.5 | Review the practical code for SVM, K-NN, Gabor features, sliding windows and NMS. | Patrick, Peter, Daire | ALL 3 | To do | – |  |
 | 1.6 | Agree the shared code structure, experiment-recording format and division of responsibilities. | Patrick, Peter, Daire | TBD | To do | – | Group decision needed |
