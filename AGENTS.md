@@ -11,12 +11,13 @@ QUB CSC3067 Video Analytics group project "Face Detection" (group: Patrick, Pete
 ## Read order
 
 1. [README.md](README.md): summary, key dates, repo map
-2. [docs/overview.md](docs/overview.md): marks, rules, working agreements
-3. [docs/assignment-notes.md](docs/assignment-notes.md): lecture notes
-4. [tasks.md](tasks.md): task board
-5. [decisions.md](decisions.md): open and settled decisions
-6. [progress-log.md](progress-log.md): what happened recently
-7. [experiments.md](experiments.md): results so far
+2. [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md): mandatory before any GitLab code, commit, or merge
+3. [docs/overview.md](docs/overview.md): marks, rules, working agreements
+4. [docs/assignment-notes.md](docs/assignment-notes.md): lecture notes
+5. [tasks.md](tasks.md): task board
+6. [decisions.md](decisions.md): open and settled decisions
+7. [progress-log.md](progress-log.md): what happened recently
+8. [experiments.md](experiments.md): results so far
 
 ## Rules
 
@@ -36,12 +37,15 @@ QUB CSC3067 Video Analytics group project "Face Detection" (group: Patrick, Pete
 | Experiment results | [experiments.md](experiments.md) |
 | Decisions | [decisions.md](decisions.md) |
 | Meeting notes | [meetings/](meetings/TEMPLATE.md) (copy `TEMPLATE.md` to `meetings/YYYY-MM-DD.md`) |
-| Code | `src/` |
-| Output images, metrics CSVs | `results/` |
+| Code the group has accepted | `src/` on GitLab, after review |
+| Personal experiments and their results | `notebooks/<INITIALS>/` on GitLab. See [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md) |
+| Final group output images, metrics CSVs | `results/` |
 
 Allowed Status values: `To do`, `In progress`, `In review`, `Blocked`, `Done`.
 
 ## Git workflow and commit conventions
+
+### This GitHub repo (VML-Docs)
 
 - Make **small commits**.
 - Message format: `<area>: <what> (task 3.2)`, e.g. `classifier: add K-NN baseline (task 2.5)`. Include the **author initials** in the commit body.
@@ -51,6 +55,16 @@ Allowed Status values: `To do`, `In progress`, `In review`, `Blocked`, `Done`.
 - **Never commit secrets** (tokens, passwords, keys) **or the large datasets** (`data/`, `*.cdataset`, large images).
 - **After every work session add a changelog line to [progress-log.md](progress-log.md)** (Date, Who, Phase, Update, Blockers, Next step).
 
+### GitLab coursework repo
+
+**Follow [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md) before any GitLab code, commit, push, or merge.** The "commit straight to `main`" rule above is only for this GitHub docs repo.
+
+- Personal experiments and their results go in `notebooks/<INITIALS>/<experiment_name>.ipynb`. Patrick `POD`, Peter `PB`, Daire `DOS`. Example: `notebooks/POD/hog_analysis.ipynb`.
+- Keep code minimal. Every name should be understandable. One comment above each function saying what it does.
+- Branch name: `f/<snake_case_summary>`. Never commit directly to GitLab `main`.
+- Commit message: `<type>/<snake_case_summary>`, for example `feat/hog_svm_baseline` or `fix/nms_iou_threshold`. Put initials in the body.
+- Open a merge request and get **one of the other two** people to approve it before it is merged. The author does not review their own request. An agent must not merge to GitLab `main`.
+
 ## Agent workflow: issues, documentation and task updates
 
 This repo is **managed by agents** (Claude and others working for Patrick, Peter and Daire). The rules below are mandatory for every agent.
@@ -59,7 +73,7 @@ This repo is **managed by agents** (Claude and others working for Patrick, Peter
 - **Every task in [tasks.md](tasks.md) has one GitHub Issue**, titled `<task ID> <task name>` (e.g. `3.2 Implement the second classifier/feature experiment`). Use labels for the phase (`phase-1` ... `phase-7`), the owner (`patrick`, `peter`, `daire`) and the type (`all-3`, `tbd`, `optional`). If an issue for the task does not exist yet, create it before starting work.
 - **Start of work:** find the issue for the task you were asked to do, comment that you are starting, and set the task Status in `tasks.md` to `In progress`.
 - **New problems:** if you hit a bug, blocker, open question or decision that is not already tracked, **open a new issue** (label `bug`, `blocked` or `question`) with what you saw, what you tried and what is needed. Link it to the related task ID. Set the task Status to `Blocked` if it stops work.
-- **Every commit message references its issue**, e.g. `classifier: add K-NN baseline (task 2.5, #12)`. Close the issue only with a comment that says what was done and links the commit, and only when the task is genuinely finished.
+- **Every commit message references its issue.** On this GitHub repo: `classifier: add K-NN baseline (task 2.5, #12)`. On GitLab the subject stays `<type>/<snake_case_summary>` and the task id and issue number go in the body. Close the issue only with a comment that says what was done and links the commit, and only when the task is genuinely finished.
 - Never delete issues. Never close another person's issue unless the user told you to.
 
 ### Document every change
@@ -82,4 +96,5 @@ After **every** work session or change, before you finish:
 - [ ] `progress-log.md` line added
 - [ ] `experiments.md` / `decisions.md` updated if relevant
 - [ ] Commit message references the task ID and issue number
-- [ ] Pulled with `--rebase` and pushed to `main`
+- [ ] Pulled with `--rebase` and pushed to `main` (this GitHub docs repo only)
+- [ ] GitLab work, if any, is on an `f/` branch with a `<type>/<snake_case>` commit, and is waiting on review from one of the other two. It is not merged to GitLab `main`.

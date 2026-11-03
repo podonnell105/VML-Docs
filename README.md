@@ -33,6 +33,7 @@ Details: [docs/assignment-notes.md](docs/assignment-notes.md) and [docs/overview
 | --- | --- |
 | [README.md](README.md) | This file: summary, dates, repo map, quick start |
 | [AGENTS.md](AGENTS.md) / [CLAUDE.md](CLAUDE.md) | Instructions for AI coding assistants (identical content) |
+| [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md) | Mandatory GitLab coding standards for people and agents |
 | [docs/overview.md](docs/overview.md) | Marks breakdown, rules in brief, working agreements |
 | [docs/assignment-notes.md](docs/assignment-notes.md) | Key notes from the lecture slides |
 | [tasks.md](tasks.md) | Task board (55 tasks, 7 phases) |
@@ -49,8 +50,11 @@ Details: [docs/assignment-notes.md](docs/assignment-notes.md) and [docs/overview
 2. Read [docs/overview.md](docs/overview.md), then check [tasks.md](tasks.md) for your tasks and [decisions.md](decisions.md) for open decisions.
 3. Commit small changes straight to `main` (group decision): `git pull --rebase`, edit, commit, `git pull --rebase`, push.
 4. After each session: update the task **Status** in [tasks.md](tasks.md), add a line to [progress-log.md](progress-log.md), and record any real results in [experiments.md](experiments.md).
-5. Keep datasets (`data/`, `*.cdataset`) out of git. Commit your own work to GitLab as well so individual contributions are visible.
+5. Keep datasets (`data/`, `*.cdataset`) out of git.
+6. GitLab code follows [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md): personal experiments in `notebooks/<INITIALS>/`, work on an `f/` branch, and one of the other two reviews it before it reaches `main`.
 
 ## Agents, issues and documentation
 
 This repo is managed by agents. **GitHub Issues are the ticket system** (one issue per task, plus issues for bugs, blockers and questions). Agents must document every change in [progress-log.md](progress-log.md), update task status in [tasks.md](tasks.md) and comment on the related issue. Full rules: [AGENTS.md](AGENTS.md).
+
+Any code an agent adds to the GitLab repo must follow [docs/gitlab-coding-standards.md](docs/gitlab-coding-standards.md). That includes the Cursor skill and rule in `.cursor/`.

@@ -1,0 +1,16 @@
+---
+description: GitLab coding standards for CSC3067. Follow before any GitLab code, commit, branch, or merge to main.
+alwaysApply: true
+---
+
+# GitLab coding standards
+
+Before any change to the group GitLab coursework repo, follow `docs/gitlab-coding-standards.md`.
+
+- Personal experiments and results: `notebooks/<INITIALS>/<experiment_name>.ipynb` (Patrick `POD`, Peter `PB`, Daire `DOS`). Example: `notebooks/POD/hog_analysis.ipynb`.
+- Write the smallest code that does the job. Every name should be clear.
+- One comment above each function saying what it does.
+- Branch: `f/<snake_case_summary>`. Never commit directly to GitLab `main`. Open a merge request and have one of the other two people review it before merge. Do not merge it yourself.
+- Commit: `<type>/<snake_case_summary>`, such as `feat/hog_svm_baseline` or `fix/nms_iou_threshold`. Types: `feat/`, `fix/`, `refactor/`, `test/`, `docs/`, `chore/`.
+
+This GitHub docs repo is separate: small doc commits still go straight to `main` here.

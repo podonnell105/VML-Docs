@@ -28,4 +28,5 @@ See also: [README.md](../README.md), [assignment-notes.md](assignment-notes.md),
 - The task owner drives the task; the other two review key design choices and integrated results.
 - Everyone contributes across design, implementation, testing and the report (peer assessment covers all four).
 - Everyone commits their own work to GitLab so individual contributions are visible.
+- GitLab code follows [gitlab-coding-standards.md](gitlab-coding-standards.md): personal work in `notebooks/<INITIALS>/`, an `f/` branch, and review by one of the other two before `main`.
 - Extra credit only after a valid baseline and a working detector.
