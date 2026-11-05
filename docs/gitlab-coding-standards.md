@@ -38,6 +38,14 @@ notebooks/POD/hog_analysis/
 
 Do not put your experiment in someone else's initials folder. Do not commit datasets (`data/`, `*.cdataset`, or other large data files).
 
+Every notebook has the same shape, so the next person's notebook can be read the same way:
+
+1. The first cell names the owner, the task, the question, the data file, and what is left out.
+2. Load crops with `load_face_images` and `vector_to_image`. Take features from `src/features.py`. Do not copy those functions into the notebook.
+3. Functions written in the notebook are for figures and measurements. Each one has a docstring saying what it does.
+4. Save figures in `notebooks/<INITIALS>/<experiment_name>/`, next to the notebook.
+5. Leave the test file closed until the group locks settings. The last cells print the numbers the task asks for and a short prediction.
+
 Shared code that the group has reviewed belongs in `src/`. Final figures the group has agreed to submit belong in `results/` only after that review.
 
 ## 2. Minimal code

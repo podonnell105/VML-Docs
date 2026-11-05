@@ -22,5 +22,6 @@ These rules apply to GitLab only. The GitHub VML-Docs repo still commits small d
 3. One plain-language comment above each function saying what it does.
 4. Work on a branch named `f/<snake_case_summary>`. Do not commit to `main`. Open a merge request and get one of the other two people to review it. The author does not approve their own request. An agent must not merge to `main`.
 5. Commit messages are `<type>/<snake_case_summary>`, for example `feat/hog_svm_baseline` or `fix/nms_iou_threshold`. Allowed types: `feat/`, `fix/`, `refactor/`, `test/`, `docs/`, `chore/`. Put initials in the body.
+6. Notebooks follow the notebook shape in that document. The first cell names the owner, task, data file and what is excluded. Loading and features come from `src`. Figure helpers stay in the notebook. Figures are saved beside the notebook. The test set stays closed until settings are locked.
 
 Do not commit datasets.

@@ -4,6 +4,8 @@ One row per experiment run. Record the exact features, classifier, parameters an
 
 | Experiment | Features | Classifier | Parameters | Train/test split | Recognition rate | Precision | Recall | TP | FP | TN | FN | Run by | Notes |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| SVM + pixels | Pixels (full image) | SVM | | | | | | | | | | | Proposed, TBD |
+| SVM + pixels | Pixels (full image, 486) | SVM | kernel=rbf, C=10, normalisation=none | 5-fold stratified CV on 94 training crops; test set unused | 89.4 | 89.8 | 89.8 | 44 | 5 | 40 | 5 | POD | Seed 42. Specificity 88.9%. Five-fold fit 0.122 ms/crop. Notebook `notebooks/POD/raw_pixels_svm.ipynb`. Commit hash pending. |
+| HOG + SVM | HOG cell=3, block_cells=1, bins=9 (486) | SVM | kernel=rbf, C=1, normalisation=none | 5-fold stratified CV on 94 training crops; test set unused | 97.9 | 100.0 | 95.9 | 47 | 0 | 45 | 2 | POD | Seed 42. Specificity 100.0%. HOG 0.022 ms/crop. Notebook `notebooks/POD/hog_experiments.ipynb`. Commit hash pending. |
+| HOG + k-NN | HOG cell=3, block_cells=1, bins=9 (486) | K-NN | k=3, normalisation=crop | 5-fold stratified CV on 94 training crops; test set unused | 91.5 | 86.0 | 100.0 | 49 | 8 | 37 | 0 | POD | Seed 42. Specificity 82.2%. Same HOG as the SVM row. Notebook `notebooks/POD/hog_experiments.ipynb`. Commit hash pending. |
 | K-NN + pixels | Pixels (full image) | K-NN | | | | | | | | | | | Proposed, TBD |
 | SVM + Gabor | Gabor features | SVM | | | | | | | | | | | Proposed, TBD |
