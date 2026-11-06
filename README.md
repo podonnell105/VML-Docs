@@ -37,6 +37,7 @@ Details: [docs/assignment-notes.md](docs/assignment-notes.md) and [docs/overview
 | [docs/overview.md](docs/overview.md) | Marks breakdown, rules in brief, working agreements |
 | [docs/assignment-notes.md](docs/assignment-notes.md) | Key notes from the lecture slides |
 | [tasks.md](tasks.md) | Task board (55 tasks, 7 phases) |
+| [docs/progress-map.md](docs/progress-map.md) | Snapshot of what is done and left, by marked section |
 | [decisions.md](decisions.md) | TBD decisions register |
 | [progress-log.md](progress-log.md) | One row per work session |
 | [experiments.md](experiments.md) | Experiment results log |
