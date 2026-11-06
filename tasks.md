@@ -8,9 +8,9 @@ The dates up to the demo follow [docs/demo-plan.md](docs/demo-plan.md).
 
 | Status | Count |
 | --- | --- |
-| To do | 57 |
-| In progress | 0 |
-| In review | 2 |
+| To do | 51 |
+| In progress | 1 |
+| In review | 7 |
 | Blocked | 0 |
 | Done | 2 |
 | **Total** | **61** |
@@ -20,9 +20,9 @@ Per phase:
 | Phase | Tasks | To do | In progress | In review | Blocked | Done |
 | --- | --- | --- | --- | --- | --- | --- |
 | Phase 1 - Setup & data | 6 | 3 | 0 | 1 | 0 | 2 |
-| Phase 2 - Baseline classifier | 11 | 10 | 0 | 1 | 0 | 0 |
-| Phase 3 - Compare classifiers | 11 | 11 | 0 | 0 | 0 | 0 |
-| Phase 4 - Build detector | 8 | 8 | 0 | 0 | 0 | 0 |
+| Phase 2 - Baseline classifier | 11 | 8 | 0 | 3 | 0 | 0 |
+| Phase 3 - Compare classifiers | 11 | 10 | 0 | 1 | 0 | 0 |
+| Phase 4 - Build detector | 8 | 5 | 1 | 2 | 0 | 0 |
 | Phase 5 - Test detector | 7 | 7 | 0 | 0 | 0 | 0 |
 | Phase 6 - Initial demo | 7 | 7 | 0 | 0 | 0 | 0 |
 | Phase 7 - Report & submission | 11 | 11 | 0 | 0 | 0 | 0 |
@@ -55,11 +55,11 @@ Per phase:
 | 2.2 | Decide how training and testing data will be separated. | Patrick, Peter, Daire | TBD | To do | 2026-11-05 | Proposed: supplied 94/30 split, tuning with cross-validation on the 94 |
 | 2.3 | Implement the shared data-loading and labelling pipeline. | Patrick, Daire | Owner task | In review | 2026-11-04 | `src/data_loader.py` is in the skeleton, for Patrick and Daire to review |
 | 2.4 | Implement or adapt the first feature-extraction method. | Patrick | Owner task | To do | 2026-11-06 | `raw_pixels()` is in the skeleton, for Patrick to review |
-| 2.5 | Implement or adapt the baseline classifier. | Peter | Owner task | To do | 2026-11-06 | Raw pixels + k-NN |
+| 2.5 | Implement or adapt the baseline classifier. | Peter | Owner task | In review | 2026-11-06 | Raw pixels + k-NN through the shared `cross_validate`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
 | 2.6 | Integrate feature extraction and classification into one working pipeline. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-06 | Peter leads, others review |
 | 2.7 | Train the baseline model and evaluate it with cross-validation on the training crops. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-06 | Test set stays unused until task 3.7 |
 | 2.8 | Record baseline metrics, settings and limitations. | Daire | Owner task | To do | 2026-11-06 |  |
-| 2.9 | Analyse raw pixel features. | Peter | Owner task | To do | 2026-11-05 | Training crops only. See [demo plan](docs/demo-plan.md) |
+| 2.9 | Analyse raw pixel features. | Peter | Owner task | In review | 2026-11-05 | `notebooks/PB/raw_pixels_analysis.ipynb`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
 | 2.10 | Analyse Gabor features. | Daire | Owner task | To do | 2026-11-05 | Training crops only. See [demo plan](docs/demo-plan.md) |
 | 2.11 | Analyse HOG features. | Patrick | Owner task | To do | 2026-11-05 | Training crops only. Confirm with staff that HOG is acceptable |
 
@@ -68,7 +68,7 @@ Per phase:
 | ID | Task | Owner | Type tag | Status | Due | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
 | 3.1 | Run raw pixels + SVM. | Patrick | Owner task | To do | 2026-11-08 | Tune `C`, kernel and normalisation |
-| 3.2 | Tune raw pixels + k-NN. | Peter | Owner task | To do | 2026-11-08 | Tune `k` and normalisation |
+| 3.2 | Tune raw pixels + k-NN. | Peter | Owner task | In review | 2026-11-08 | Best k=1, no scaling: 80.9% person-grouped folds, 88.3% ordinary. `notebooks/PB/raw_pixels_knn.ipynb`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
 | 3.3 | Run Gabor + SVM. | Daire | Owner task | To do | 2026-11-08 | Tune `C`, kernel and PCA |
 | 3.4 | Ensure all experiments use a fair, agreed evaluation procedure. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-06 | See comparison rules in the [demo plan](docs/demo-plan.md) |
 | 3.5 | Tune relevant model parameters and record each configuration. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-10 |  |
@@ -83,11 +83,11 @@ Per phase:
 
 | ID | Task | Owner | Type tag | Status | Due | Notes |
 | --- | --- | --- | --- | --- | --- | --- |
-| 4.1 | Agree the interface between the classifier and detector. | Patrick, Peter, Daire | TBD | To do | 2026-11-06 | Group decision needed |
-| 4.2 | Implement the sliding-window scan across an image. | Peter | Owner task | To do | 2026-11-10 | Start with raw pixels + k-NN |
-| 4.3 | Implement multi-scale detection by resizing the image or scanning at different scales. | Peter | Owner task | To do | 2026-11-13 |  |
-| 4.4 | Pass each window through the selected classifier and collect candidate detections. | Peter, Patrick | Owner task | To do | 2026-11-13 |  |
-| 4.5 | Implement or adapt non-maximum suppression (NMS). | Daire | Owner task | To do | 2026-11-13 |  |
+| 4.1 | Agree the interface between the classifier and detector. | Patrick, Peter, Daire | TBD | To do | 2026-11-06 | Group decision needed. Proposed in Peter's MR: `detect_faces(image, score_windows, scales, step, threshold)`, where `score_windows` scores a stack of 27x18 crops. Boxes come back as (x, y, width, height, score) |
+| 4.2 | Implement the sliding-window scan across an image. | Peter | Owner task | In review | 2026-11-10 | `sliding_window` in `src/detector.py`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
+| 4.3 | Implement multi-scale detection by resizing the image or scanning at different scales. | Peter | Owner task | In review | 2026-11-13 | 8 scales, 0.41 to 1.95. `detect_faces` in `src/detector.py`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
+| 4.4 | Pass each window through the selected classifier and collect candidate detections. | Peter, Patrick | Owner task | In progress | 2026-11-13 | Runs with raw pixels + SVM as a placeholder. Swap in the classifier locked in task 3.7 |
+| 4.5 | Implement or adapt non-maximum suppression (NMS). | Daire | Owner task | To do | 2026-11-13 | Input: the (x, y, width, height, score) array from `detect_faces` |
 | 4.6 | Integrate scanning, classification and NMS into one detector. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-13 |  |
 | 4.7 | Tune stride, scale changes and NMS settings. | Patrick, Peter, Daire | TBD | To do | 2026-11-15 | The window stays 18x27. Select experimentally, record each setting |
 | 4.8 | Generate and save images with predicted bounding boxes. | Daire | Owner task | To do | 2026-11-13 |  |
