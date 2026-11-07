@@ -8,9 +8,9 @@ The dates up to the demo follow [docs/demo-plan.md](docs/demo-plan.md).
 
 | Status | Count |
 | --- | --- |
-| To do | 51 |
+| To do | 49 |
 | In progress | 1 |
-| In review | 7 |
+| In review | 9 |
 | Blocked | 0 |
 | Done | 2 |
 | **Total** | **61** |
@@ -20,8 +20,8 @@ Per phase:
 | Phase | Tasks | To do | In progress | In review | Blocked | Done |
 | --- | --- | --- | --- | --- | --- | --- |
 | Phase 1 - Setup & data | 6 | 3 | 0 | 1 | 0 | 2 |
-| Phase 2 - Baseline classifier | 11 | 8 | 0 | 3 | 0 | 0 |
-| Phase 3 - Compare classifiers | 11 | 10 | 0 | 1 | 0 | 0 |
+| Phase 2 - Baseline classifier | 11 | 7 | 0 | 4 | 0 | 0 |
+| Phase 3 - Compare classifiers | 11 | 9 | 0 | 2 | 0 | 0 |
 | Phase 4 - Build detector | 8 | 5 | 1 | 2 | 0 | 0 |
 | Phase 5 - Test detector | 7 | 7 | 0 | 0 | 0 | 0 |
 | Phase 6 - Initial demo | 7 | 7 | 0 | 0 | 0 | 0 |
@@ -60,7 +60,7 @@ Per phase:
 | 2.7 | Train the baseline model and evaluate it with cross-validation on the training crops. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-06 | Test set stays unused until task 3.7 |
 | 2.8 | Record baseline metrics, settings and limitations. | Daire | Owner task | To do | 2026-11-06 |  |
 | 2.9 | Analyse raw pixel features. | Peter | Owner task | In review | 2026-11-05 | `notebooks/PB/raw_pixels_analysis.ipynb`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
-| 2.10 | Analyse Gabor features. | Daire | Owner task | To do | 2026-11-05 | Training crops only. See [demo plan](docs/demo-plan.md) |
+| 2.10 | Analyse Gabor features. | Daire | Owner task | In review | 2026-11-05 | Training crops only. See [demo plan](docs/demo-plan.md). `notebooks/DOS/gabor_analysis.ipynb` on GitLab `f/gabor_analysis_and_svm` (04289de), MR open |
 | 2.11 | Analyse HOG features. | Patrick | Owner task | To do | 2026-11-05 | Training crops only. Confirm with staff that HOG is acceptable |
 
 ## Phase 3 - Compare classifiers
@@ -69,7 +69,7 @@ Per phase:
 | --- | --- | --- | --- | --- | --- | --- |
 | 3.1 | Run raw pixels + SVM. | Patrick | Owner task | To do | 2026-11-08 | Tune `C`, kernel and normalisation |
 | 3.2 | Tune raw pixels + k-NN. | Peter | Owner task | In review | 2026-11-08 | Best k=1, no scaling: 80.9% person-grouped folds, 88.3% ordinary. `notebooks/PB/raw_pixels_knn.ipynb`. GitLab branch `f/raw_pixels_analysis` (draft MR) |
-| 3.3 | Run Gabor + SVM. | Daire | Owner task | To do | 2026-11-08 | Tune `C`, kernel and PCA |
+| 3.3 | Run Gabor + SVM. | Daire | Owner task | In review | 2026-11-08 | Kernel, `C` and scaling tuned; PCA still to do. `notebooks/DOS/gabor_svm.ipynb` on GitLab `f/gabor_analysis_and_svm` (16c24aa), MR open |
 | 3.4 | Ensure all experiments use a fair, agreed evaluation procedure. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-06 | See comparison rules in the [demo plan](docs/demo-plan.md) |
 | 3.5 | Tune relevant model parameters and record each configuration. | Patrick, Peter, Daire | ALL 3 | To do | 2026-11-10 |  |
 | 3.6 | Calculate recognition rate, TP, FP, TN, FN, precision, recall and specificity, as appropriate. | Daire | Owner task | To do | 2026-11-06 | All 3 review. Daire writes the metrics and the pipeline calls them |
